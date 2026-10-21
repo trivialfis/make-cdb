@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "make-cdb"
+version = "0.1.0"
+description = "Prepare compilation databases for clangd with Pixi/Conda toolchains"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+make-clangd-db = "make_cdb:main"
+
+[tool.setuptools]
+packages = ["make_cdb"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
